@@ -4,7 +4,9 @@ from io import BytesIO
 from pdf2image import convert_from_path
 from PIL import Image
 import fitz  # PyMuPDF
-from app.services import convert_pdf_to_text_service, convert_image_to_pdf_service, convert_pdf_to_image_service
+from .services.convert_services  import convert_pdf_to_text_service
+from .services.convert_services  import convert_image_to_pdf_service
+from .services.convert_services  import convert_pdf_to_image_service
 
 app = FastAPI()
 
