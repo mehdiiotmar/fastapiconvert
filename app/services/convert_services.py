@@ -7,7 +7,7 @@ from fastapi.responses import StreamingResponse
 
 async def convert_pdf_to_text_service(file: UploadFile):
     if file.content_type != "application/pdf":
-        raise HTTPException(status_code=400, detail="Le fichier doit être au format PDF")
+        raise HTTPException(status_code=400, detail="Le fichier doit etre au format PDF")
 
     pdf_file = BytesIO(await file.read())
     doc = fitz.open(stream=pdf_file, filetype="pdf")
@@ -19,7 +19,7 @@ async def convert_pdf_to_text_service(file: UploadFile):
 
 async def convert_image_to_pdf_service(file: UploadFile):
     if file.content_type not in ["image/jpeg", "image/png"]:
-        raise HTTPException(status_code=400, detail="Le fichier doit être une image JPEG ou PNG")
+        raise HTTPException(status_code=400, detail="Le fichier doit etre une image JPEG ou PNG")
 
     image_file = BytesIO(await file.read())
     image = Image.open(image_file)
@@ -32,7 +32,7 @@ async def convert_image_to_pdf_service(file: UploadFile):
 
 async def convert_pdf_to_image_service(file: UploadFile):
     if file.content_type != "application/pdf":
-        raise HTTPException(status_code=400, detail="Le fichier doit être au format PDF")
+        raise HTTPException(status_code=400, detail="Le fichier doit etre au format PDF")
 
     pdf_file = BytesIO(await file.read())
     images = convert_from_path(pdf_file)
