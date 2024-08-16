@@ -25,3 +25,7 @@ async def convert_pdf_to_image(file: UploadFile = File(...)):
 @app.get("/")
 def read_root():
     return {"message": "Bienvenue dans l'API de conversion de fichiers. Utilisez POST /convert/pdf-to-text, /convert/image-to-pdf, ou /convert/pdf-to-image pour convertir des fichiers."}
+# New health check endpoint
+@app.get("/health/")
+def health_check():
+    return {"status": "ok"}
